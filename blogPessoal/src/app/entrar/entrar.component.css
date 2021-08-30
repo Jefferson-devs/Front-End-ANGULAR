@@ -1,9 +1,32 @@
 #img-bg{
-    background-image: url("../../assets/img/img2.jpg");
+    background-repeat: no-repeatkground-seamless-looping-concept-an;
+    background-image: url("https://ipfs.io/ipfs/QmVacftCGVBnPJ5PzZR1b9aBJVAqi93bcGadxKP37CLVv1");
 
-    min-height: 695px;
+    height: 100vh;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
+}
+
+.box{
+    position: absolute;
+    background-image: linear-gradient(#2991774f,#a0a0a0b7); 
+    top: 51%; 
+    left: 50%; 
+    transform: translate(-50%,-50%); 
+    border-radius: 12px;
+    padding: 30px; 
+    width: 290px;
+    height: 390px;
+}
+
+.box:hover {
+    background-image: linear-gradient(#20976d6b,#e7e5e59f); 
+    transition: .80s ease-in-out;
+}
+
+label {
+    color:#fff;
 }
