@@ -1,19 +1,20 @@
 <div class="container-fluid">
 
-    <div class="row fundo-bg align-items-center">
+    <div class="row fundo-bg d-flex align-items-center">
 
         <div class="col-md-6">
 
+            
             <div class="row d-flex justify-content-center">
-                <div class="col-md-6 text-black">
-                    <h1 class="fs-54">Seja bem vindo(a)!</h1>
-                    <h5 class="fs-18">Fique a vontade para expressar aqui os seus pensamentos e opiniões.</h5>
+                <div class="col-md-8 text-black">
+                    <h1 class="fs-33">Bem vindo ao U.D.T!</h1>
+                    <h5 class="fs-16 mt-5">Fique a vontade para navegar em nosso blog ou compartilhar alguma idéia para nossos iniciantes. Dicas e cursos gratuitos é o nosso foco principal para quem está iniciando na área tech!</h5>
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center mt-3 mb-5">
+            <div class="row d-flex justify-content-center mt-5 mb-5">
                 <div class="col-md-6">
-                    <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#novaPostagem">
+                    <button class="btn btn-dark mr-4" data-toggle="modal" data-target="#novaPostagem">
             Nova Postagem</button>
                     <a class="btn btn-dark" href="#postagens">Ver Postagens</a>
                 </div>
@@ -22,7 +23,7 @@
         </div>
 
         <div class="col-md-5 d-flex justify-content-center">
-            <img src="https://i.imgur.com/A6oAfSP.png" alt="Imagem ilustrativa de pessoas em rede social" width="500px" height="500px">
+            <img src="https://i.imgur.com/OAFaYuo.jpg" alt="Imagem ilustrativa de geometria tecnology" width="800px" height="680px">
         </div>
 
     </div>
@@ -78,18 +79,18 @@
         <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
             <div class="card-columns">
-                <div class="card text-center" *ngFor='let item of user.postagem | orderBy : key : reverse '>
+                <div class="card text-center" *ngFor='let item of user.postagem | orderBy : key : reverse'>
                     <div class="card-body">
                         <h5 class="card-title m-0">{{item.titulo}}</h5>
                         <small class="text-muted">Tema: {{item.tema.descricao}}</small>
-                        <p class="card-text  mt-3">{{item.texto}}</p>
+                        <p class="card-text mt-3">{{item.texto}}</p>
                         <p class="card-text">
                             <small class="text-muted text-left">
-                {{item.data | date: 'dd/MM/yyyy '}} às {{item.data | date: 'HH:mm '}} </small>
+                {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}} </small>
                         </p>
 
-                        <a [routerLink]="['/postagem-edit ', item.id]" class="text-primary mr-3" href="">Editar</a>
-                        <a [routerLink]="['/postagem-delete ', item.id]" class="text-danger" href="">Apagar</a>
+                        <a [routerLink]="['/postagem-edit', item.id]" class="text-primary mr-3" href="">Editar</a>
+                        <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
 
                     </div>
                 </div>
@@ -102,14 +103,14 @@
             <div class="row d-flex justify-content-center mt-5 mb-5">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema ' (keyup)='findByNomeTema() '>
+                        <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByNomeTema()'>
                     </div>
                 </div>
             </div>
 
 
-            <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse '>
-                <div class="card text-center" *ngFor='let item of tema.postagem '>
+            <div class="card-columns" *ngFor='let tema of listaTemas | orderBy : key : reverse'>
+                <div class="card text-center" *ngFor='let item of tema.postagem'>
                     <div class="card-body">
 
                         <h5 class="card-title m-0">{{item.titulo}}</h5>
@@ -135,32 +136,32 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
         </button>
             </div>
             <div class="modal-body">
 
                 <div class="form-group">
                     <label for="titulo">Título</label>
-                    <input [(ngModel)]='postagem.titulo ' type="text" class="form-control" id="titulo" placeholder="Informe o título">
+                    <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo" placeholder="Informe o título">
                 </div>
 
                 <div class="form-group">
                     <label for="texto">Texto</label>
-                    <textarea [(ngModel)]='postagem.texto ' class="form-control" name="texto" id="texto" rows="3"></textarea>
+                    <textarea [(ngModel)]='postagem.texto' class="form-control" name="texto" id="texto" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema '>cadastre um novo</a>:</label>
-                    <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema ' (change)='findByIdTema() '>
-            <option *ngFor='let item of listaTemas ' value="{{item.id}}">{{item.descricao}}</option>
-          </select>
+                    <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:</label>
+                    <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
+            <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
+        </select>
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-outline-success" (click)='publicar() ' data-dismiss="modal">Publicar</button>
+                <button type="button" class="btn btn-outline-success" (click)='publicar()' data-dismiss="modal">Publicar</button>
             </div>
         </div>
     </div>
